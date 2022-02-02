@@ -1,0 +1,13 @@
+body{
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.dashboard{
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #15317e 40%, #2554c7 80%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
