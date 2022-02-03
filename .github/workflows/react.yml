@@ -23,6 +23,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install -g yarn
-    - run: git remote set-url origin https://valentinhojbota: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@github.com/valentinhojbota/near-dapp
+    - run: git remote set-url origin git@github.com:valentinhojbota/near-dapp
     - run: yarn
     - run: yarn deploy
