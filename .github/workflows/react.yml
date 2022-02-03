@@ -6,27 +6,37 @@ on:
      - main
 
 jobs:
- Deploy:
+ build:
+
    runs-on: ubuntu-latest
+   permissions:
+      packages: write
+      contents: read
+      id-token: write
+
+   strategy:
+      matrix:
+        node-version: [14.x]
+
    steps:
      - name: Checkout
        uses: actions/checkout@v2
 
-     - name: Setup node
-       uses: actions/setup-node@v2
+     - name: Install yarn
+       run: npm install -g yarn
 
      - name: Install dependencies
-       run: npm install
+       run: yarn
 
      - name: Build static file
-       run: npm run build
+       run: yarn build
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
        with:
-         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         aws-access-key-id: AKIAUMNAZVHRKALYM4O6
+         aws-secret-access-key: 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
          aws-region: us-east-1
 
      - name: Deploy static site to S3 bucket
-       run: aws s3 sync ./build s3://near-react
+       run: aws s3 sync ./dist s3://near-dapp

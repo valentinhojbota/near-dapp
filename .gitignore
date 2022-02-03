@@ -3,3 +3,5 @@ node_modules
 .parcel-cache
 contract/target
 contract/Cargo.lock
+
+.DS_Store

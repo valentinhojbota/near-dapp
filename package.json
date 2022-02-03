@@ -6,8 +6,7 @@
   "scripts": {
     "start": "REACT_APP_ENV=dev parcel src/index.html --open",
     "test": "REACT_APP_ENV=dev jest test.js --useStderr",
-    "predeploy": "parcel build src/index.html --no-source-maps",
-    "deploy": "gh-pages -d dist",
+    "build": "parcel build src/index.html --no-source-maps",
     "test:contract": "(cd contract && cargo test -- --nocapture)",
     "build:contract": "(cd contract && ./build.sh)",
     "deploy:contract": "yarn build:contract && (near deploy -f --wasmFile out/main.wasm --accountId valih.testnet || exit 0)"
