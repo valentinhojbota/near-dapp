@@ -25,6 +25,4 @@ jobs:
     - run: npm install -g yarn
     - run: git remote set-url origin https://valentinhojbota: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@github.com/valentinhojbota/near-dapp
     - run: yarn
-    - run: yarn test
     - run: yarn deploy
-
