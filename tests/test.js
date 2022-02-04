@@ -1,5 +1,5 @@
 const nearAPI = require('near-api-js')
-const getConfig = require('../config.js')
+const getConfig = require('../src/config.js')
 const testUtils = require('./testUtils')
 
 const {

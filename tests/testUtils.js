@@ -1,7 +1,7 @@
 const fs = require('fs')
 const BN = require('bn.js')
 const nearAPI = require('near-api-js')
-const getConfig = require('../config')
+const getConfig = require('../src/config')
 
 const { nodeUrl, networkId, contractMethods, contractName, DEFAULT_NEW_ACCOUNT_AMOUNT } = getConfig(true)
 const {

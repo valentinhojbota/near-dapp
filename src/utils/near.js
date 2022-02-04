@@ -1,4 +1,4 @@
-import getConfig from '../../config'
+import getConfig from '../config'
 import * as nearAPI from 'near-api-js'
 
 export const { GAS, networkId, nodeUrl, walletUrl, nameSuffix, contractName, contractMethods, accessKeyMethods } =

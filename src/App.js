@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as nearAPI from 'near-api-js'
 
-import getConfig from '../config'
+import getConfig from './config'
 
 import { Header, Loading, Login, MintForm, Gallery } from './components'
 
