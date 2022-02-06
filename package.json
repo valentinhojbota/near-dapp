@@ -1,5 +1,5 @@
 {
-  "homepage": "https://valentinhojbota.github.io/near-app",
+  "homepage": "http://near-dapp.s3-website-us-east-1.amazonaws.com",
   "name": "near-dapp",
   "version": "0.1.0",
   "private": true,
@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "formik": "^2.2.9",
-    "gh-pages": "^3.2.3",
     "near-api-js": "^0.44.2",
     "parcel": "^2.0.0-beta.1",
     "react": "^17.0.2",
