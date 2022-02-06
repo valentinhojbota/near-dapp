@@ -26,7 +26,7 @@ export const BalanceText = styled.span`
   color: white;
 `
 
-export const Button = styled.div`
+export const Button = styled.button`
   padding: 0.8rem;
   margin: 1rem;
   font-size: 1rem;

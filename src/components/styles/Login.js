@@ -20,7 +20,7 @@ export const Title = styled.h1`
   text-align: center;
 `
 
-export const Button = styled.div`
+export const Button = styled.button`
   padding: 1rem;
   font-size: 1.3rem;
   width: fit-content;

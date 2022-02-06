@@ -10,8 +10,6 @@ use near_sdk::{
     near_bindgen,
     // type definitions
     AccountId,
-    Balance,
-    PublicKey,
 };
 use serde::Serialize;
 
@@ -39,9 +37,7 @@ pub struct TokenData {
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize)]
 pub struct NonFungibleTokenBasic {
-    pub pubkey_minted: UnorderedMap<PublicKey, u8>,
     pub token_to_data: UnorderedMap<TokenId, TokenData>,
-    pub account_to_proceeds: UnorderedMap<AccountId, Balance>,
     pub owner_id: AccountId,
     pub token_id: TokenId,
 }
@@ -62,9 +58,7 @@ impl NonFungibleTokenBasic {
         );
         assert!(!env::state_exists(), "Already initialized");
         Self {
-            pubkey_minted: UnorderedMap::new(b"pubkey_minted".to_vec()),
-            token_to_data: UnorderedMap::new(b"token_to_account".to_vec()),
-            account_to_proceeds: UnorderedMap::new(b"account_to_proceeds".to_vec()),
+            token_to_data: UnorderedMap::new(b"token_to_account".to_vec()),            
             owner_id,
             token_id: 0,
         }

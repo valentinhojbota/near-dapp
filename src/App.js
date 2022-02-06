@@ -17,14 +17,13 @@ export const {
 
 const App = () => {
   const [wallet, setWallet] = useState(null)
-  const [contractAccount, setContractAccount] = useState(null)
   const [account, setAccount] = useState(null)
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [items, setItems] = useState([])
 
   const initNear = async () => {
-    const { wallet: newWallet, contractAccount: newContractAccount } = await getWallet()
+    const { wallet: newWallet} = await getWallet()
 
     newWallet.signIn = async () => {
       await newWallet.requestSignIn(contractName, 'Blah Blah')
@@ -34,8 +33,6 @@ const App = () => {
     const signOut = newWallet.signOut
     newWallet.signOut = async () => {
       await signOut.call(newWallet)
-      await setWallet(null)
-      await setContractAccount(null)
       await setAccount(null)
       await setIsSignedIn(false)
     }
@@ -47,7 +44,6 @@ const App = () => {
     }
 
     await setWallet(newWallet)
-    await setContractAccount(newContractAccount)
     await setAccount(newAccount)
     await setIsSignedIn(newWallet.isSignedIn())
   }
