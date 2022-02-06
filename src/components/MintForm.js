@@ -1,13 +1,13 @@
 import React from 'react'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 
-import { Container, Title } from './styles/MintForm'
+import { Container, Title, FormRow, SubmitButton, StyledField, ErrorContainer } from './styles/MintForm'
 
 export default ({ onSubmit }) => {
   const submitSchema = Yup.object().shape({
     imgUrl: Yup.string()
-      .matches(/((https?):\/\/)?(www.)*$/, 'Enter correct url!')
+      .matches(/(https?:\/\/)[^\s]+/, 'Enter correct url!')
       .required('Image url is required'),
   })
 
@@ -23,9 +23,11 @@ export default ({ onSubmit }) => {
       >
         {({ errors, touched }) => (
           <Form>
-            <Field name="imgUrl" />
-            {errors.imgUrl && touched.imgUrl ? <div>{errors.imgUrl}</div> : null}
-            <button type="submit">MINT</button>
+            <FormRow>
+              <StyledField name="imgUrl" />
+              <SubmitButton type="submit">MINT</SubmitButton>
+            </FormRow>
+            {errors.imgUrl && touched.imgUrl ? <ErrorContainer>{errors.imgUrl}</ErrorContainer> : null}
           </Form>
         )}
       </Formik>
